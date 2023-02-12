@@ -13,6 +13,7 @@ function App() {
   let [따봉, 따봉변경] = useState(0);
   let [따봉1, 따봉변경1] = useState(0);
   let [따봉2, 따봉변경2] = useState(0);
+  let [modal, setModal] = useState(false);
 
   return (
     <div className="App">
@@ -59,7 +60,7 @@ function App() {
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
-        <h4>
+        <h4 onClick={()=> {setModal(true)}}>
           {글제목[2]}
           <span
             onClick={() => {
@@ -73,7 +74,10 @@ function App() {
         <p>2월 17일 발행</p>
       </div>
 
-      <Modal></Modal>
+        {
+          modal == true ? <Modal/> : null
+        }
+      
     </div>
   );
 }
